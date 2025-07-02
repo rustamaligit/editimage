@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Http\Controllers\Api\ProductController;
 
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware(['auth:sanctum', 'api-auth'])->group(function () {
 
     // ✅ Authenticated user info
     Route::get('/user', function (Request $request) {
@@ -17,6 +17,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // ✅ Product creation (protected)
     Route::post('/products', [ProductController::class, 'store']);
+    Route::get('/products', [ProductController::class, 'index']);
 });
 
 // ✅ Login route (public)

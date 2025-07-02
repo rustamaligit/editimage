@@ -50,4 +50,15 @@ class ProductController extends Controller
             'product' => $product->load('images')
         ]);
     }
+    //Get Product for api
+    public function index()
+    {
+        $products = Product::with('images')->latest()->get();
+
+        return response()->json([
+            'products' => $products
+        ]);
+    }
+
+
 }
