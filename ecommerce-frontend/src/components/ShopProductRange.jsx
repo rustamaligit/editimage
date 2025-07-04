@@ -24,7 +24,7 @@ const ShopProductRange = () => {
 
                     <Col xs={12} md={4}>
                         <div className="product-card bg-card position-relative p-3 rounded">
-                            <Image src="/home_after_banner/home_apparel.png"  className="mb-3" />
+                            <Image src="/home_after_banner/stickers_home.png"  className="mb-3" />
                             <Button variant="light" className="shadow-sm fw-semibold rounded-pill px-4 py-2">
                                 Shop Stickers
                             </Button>
