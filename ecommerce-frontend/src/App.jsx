@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Products from './pages/Products';
 import Home from "./pages/Home.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 
 function App() {
     return (

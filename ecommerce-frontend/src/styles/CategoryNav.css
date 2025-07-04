@@ -1,0 +1,43 @@
+.category-nav {
+    background-color: #f4f3f8;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.category-scroll {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #0e0034;
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.category-item:hover {
+    text-decoration: underline;
+}
+
+.new-badge {
+    background-color: #9e70ff;
+    color: white;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+}

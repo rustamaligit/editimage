@@ -1,0 +1,84 @@
+.promo-banner {
+    background: linear-gradient(135deg, #d3a6f3, #7797f8);
+    color: #1a1a1a;
+    overflow: hidden;
+}
+
+.promo-title {
+    font-size: 2rem;
+}
+
+.promo-description {
+    font-size: 1rem;
+    color: #1f1f1f;
+}
+
+.promo-btn {
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+.new-badge-large {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background-color: #ffe600;
+    color: #ff00aa;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.25rem 1rem;
+    border-radius: 20% 80% 80% 20% / 30% 50% 50% 70%;
+    transform: rotate(-10deg);
+    box-shadow: 0 0 0 3px black;
+}
+
+.promo-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/*Bnner design css*/
+
+.banner-text-wrapper {
+    text-align: center;
+    color: #1a1a1a;
+    padding: 2rem 1rem;
+}
+
+.banner-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.banner-subheading {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.banner-button {
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.banner-button:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/*Mobile css start here*/
+@media (max-width: 767.98px) {
+    .position-relative.col-md-4 {
+        display: none;
+    }
+}
