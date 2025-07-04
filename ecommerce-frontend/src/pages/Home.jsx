@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import CategoryNav from '../components/CategoryNav';
 import PromoBanner from "../components/PromoBanner";
+import ShopProductRange from "../components/ShopProductRange";
 // import other sections later
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
             <Header />
             <CategoryNav />
             <PromoBanner />
+            <ShopProductRange />
             {/* Add other sections here next */}
             <div className="text-center py-20">
 
