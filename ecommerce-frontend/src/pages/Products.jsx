@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import CategoryNav from '../components/CategoryNav';
 import Footer from '../components/Footer';
+import CategoryBar from "../components/CategoryBar.jsx";
 import axios from '../api/axios';
 
 function Products() {
@@ -21,6 +22,7 @@ function Products() {
         <div>
         <Header />
         <CategoryNav/>
+            <CategoryBar/>
 
         <div style={{ padding: '2rem' }}>
             <h2>Products List</h2>

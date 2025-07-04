@@ -1,0 +1,87 @@
+/* src/styles/CategoryBar.css */
+
+.category-bar-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.category-bar {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 12px;
+    padding: 0 48px;
+    width: 100%;
+}
+
+/* Hide scrollbars (modern browsers) */
+.category-bar::-webkit-scrollbar {
+    display: none;
+}
+.category-bar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.category-item {
+    background-color: #805ad5; /* Purple background */
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 9999px; /* Fully rounded pill */
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.category-item:hover {
+    background-color: #6b46c1;
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border-radius: 9999px;
+    border: none;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 6px 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.scroll-button.left {
+    left: 10px;
+}
+
+.scroll-button.right {
+    right: 10px;
+}
+
+.scroll-button:hover {
+    background-color: #f3f3f3;
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+    .scroll-button {
+        display: none;
+    }
+
+    .category-bar {
+        padding: 0 16px;
+        gap: 10px;
+    }
+
+    .category-item {
+        font-size: 13px;
+        padding: 6px 14px;
+    }
+}
