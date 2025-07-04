@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import Header from '../components/Header';
+import CategoryNav from '../components/CategoryNav';
+import Footer from '../components/Footer';
 import axios from '../api/axios';
 
 function Products() {
@@ -15,6 +18,10 @@ function Products() {
     }, []);
 
     return (
+        <div>
+        <Header />
+        <CategoryNav/>
+
         <div style={{ padding: '2rem' }}>
             <h2>Products List</h2>
 
@@ -50,6 +57,8 @@ function Products() {
                 )}
                 </tbody>
             </table>
+        </div>
+            <Footer />
         </div>
     );
 }
