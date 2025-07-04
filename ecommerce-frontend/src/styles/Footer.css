@@ -1,0 +1,68 @@
+footer {
+    background-color: #0b0024;
+    color: white;
+    padding-top: 3rem;
+    font-size: 14px;
+}
+
+footer h6 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+footer ul li:hover {
+    color: #ff5f5f;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ff5f5f;
+}
+
+footer hr {
+    border-color: #322d3f;
+}
+
+footer img {
+    max-height: 40px;
+    object-fit: contain;
+}
+
+footer .redbubble-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+footer .app-links img {
+    height: 40px;
+    margin: 0 0.5rem;
+}
+
+footer .copyright {
+    font-size: 12px;
+    margin-top: 1rem;
+}
+
+footer .social-icons li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
