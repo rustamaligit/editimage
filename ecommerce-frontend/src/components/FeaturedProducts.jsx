@@ -40,17 +40,21 @@ const FeaturedProducts = () => {
             <Row xs={1} sm={2} md={3} lg={5} className="g-4">
                 {Array.isArray(products) && products.map((product, idx) => (
                     <Col key={idx}>
-                        <Card className="product-card">
+                        <Card className="product-card h-100">
                             <Card.Img variant="top" src="https://placehold.co/500" alt={product.title} />
-                            <Card.Body>
-                                <Card.Title className="product-title">{product.name}</Card.Title>
-                                <Card.Text className="product-artist"> {product.description}</Card.Text>
-                                <Card.Text className="product-price">
+                            <Card.Body className="d-flex flex-column">
+                                <div className="flex-grow-1">
+                                    <Card.Title className="product-title">{product.name}</Card.Title>
+                                    <Card.Text className="product-description">
+                                        {product.description}
+                                    </Card.Text>
+                                </div>
+                                <Card.Text className="product-price mt-2">
                                     <strong>{product.price}</strong>
                                     {product.originalPrice && (
                                         <>
-                                            <span className="product-original-price">{product.originalPrice}</span>
-                                            <span className="product-discount">(25% off)</span>
+                                            <span className="product-original-price ms-2">{product.originalPrice}</span>
+                                            <span className="product-discount ms-1">(25% off)</span>
                                         </>
                                     )}
                                 </Card.Text>
@@ -60,6 +64,7 @@ const FeaturedProducts = () => {
                 ))}
             </Row>
         </Container>
+
     );
 };
 
