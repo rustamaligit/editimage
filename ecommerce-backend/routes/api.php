@@ -42,3 +42,5 @@ Route::post('/login', function (Request $request) {
 Route::get('/ping', function () {
     return 'pong';
 });
+
+Route::get('/feature-products', [ProductController::class, 'index']);
