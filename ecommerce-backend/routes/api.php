@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Api;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Http\Controllers\Api\ProductController;
 
-
+// ==============================
+// Authenticated API Routes
+// ==============================
 Route::middleware(['auth:sanctum', 'api-auth'])->group(function () {
 
     // ✅ Authenticated user info
@@ -15,16 +18,18 @@ Route::middleware(['auth:sanctum', 'api-auth'])->group(function () {
         return $request->user();
     });
 
-    // ✅ Product creation (protected)
+    // ✅ Product routes (protected)
     Route::post('/products', [ProductController::class, 'store']);
     Route::get('/products', [ProductController::class, 'index']);
 });
 
-// ✅ Login route (public)
+// ==============================
+// Public Routes
+// ==============================
 Route::post('/login', function (Request $request) {
     $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
+        'email'    => 'required|email',
+        'password' => 'required',
     ]);
 
     $user = User::where('email', $request->email)->first();
@@ -34,13 +39,32 @@ Route::post('/login', function (Request $request) {
     }
 
     return response()->json([
-        'token' => $user->createToken('api-token')->plainTextToken
+        'token' => $user->createToken('api-token')->plainTextToken,
+        'user'  => [
+            'name'     => $user->name,
+            'email'    => $user->email,
+            'is_admin' => $user->is_admin ?? false,
+        ],
     ]);
 });
 
-
-Route::get('/ping', function () {
-    return 'pong';
-});
-
+// ✅ Public product listing (no login required)
 Route::get('/feature-products', [ProductController::class, 'index']);
+
+// ==============================
+// Admin-Only Routes
+// ==============================
+Route::middleware(['auth:sanctum', 'admin'])
+    ->prefix('admin')
+    ->group(function () {
+        Route::get('/ping', function () {
+            return 'pong';
+        });
+
+        // Example: Admin-only product list
+        Route::get('/products', [ProductController::class, 'index']);
+    });
+
+Route::middleware(['auth:sanctum', 'admin'])->get('/admin/me', function (Request $request) {
+    return $request->user();
+});
