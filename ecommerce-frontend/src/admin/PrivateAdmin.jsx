@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import axios from "axios";
 
-function PrivateAdmin({ children }) {
+export default function PrivateAdmin({ children }) {
     const [loading, setLoading] = useState(true);
     const [isAllowed, setIsAllowed] = useState(false);
 
@@ -14,35 +15,29 @@ function PrivateAdmin({ children }) {
             return;
         }
 
-        fetch("http://127.0.0.1:8000/api/admin/me", {
+        axios.get("http://127.0.0.1:8000/api/admin/me", {
             headers: {
-                "Authorization": `Bearer ${token}`,
-                "Accept": "application/json"
-            }
+                Authorization: `Bearer ${token}`,
+            },
         })
             .then(res => {
-                if (!res.ok) throw new Error("Not allowed");
-                return res.json();
-            })
-            .then(() => {
-                setIsAllowed(true);
-                setLoading(false);
+                if (res.data.is_admin) {
+                    setIsAllowed(true);
+                } else {
+                    setIsAllowed(false);
+                }
             })
             .catch(() => {
                 setIsAllowed(false);
+            })
+            .finally(() => {
                 setLoading(false);
             });
     }, []);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    if (loading) return <div>Loading...</div>;
 
-    if (!isAllowed) {
-        return <Navigate to="/admin/login" replace />;
-    }
+    if (!isAllowed) return <Navigate to="/" replace />;
 
     return children;
 }
-
-export default PrivateAdmin;

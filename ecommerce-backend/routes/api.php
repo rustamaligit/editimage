@@ -65,6 +65,14 @@ Route::middleware(['auth:sanctum', 'admin'])
         Route::get('/products', [ProductController::class, 'index']);
     });
 
+// Route::middleware(['auth:sanctum', 'admin'])->get('/admin/me', function (Request $request) {
+//     return $request->user();
+// });
+
+// routes/api.php
 Route::middleware(['auth:sanctum', 'admin'])->get('/admin/me', function (Request $request) {
-    return $request->user();
+    return [
+        'is_admin' => $request->user()->is_admin,
+        'user' => $request->user()
+    ];
 });
